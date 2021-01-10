@@ -9,12 +9,14 @@ categories:
   - Python
   - FOMC
   - Minutes
+  - Federal Reserve
 tags:
   - R
   - Python
   - FOMC
   - Minutes
-description: ''
+  - Federal Reserve
+description: 'What did Federal Reserve say?'
 topics: []
 output:
   blogdown::html_page:
@@ -29,9 +31,11 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 
 
-*What did Fed say? With the help of text mining, this project aims to gain insights and colour from FOMC Minutes and to make plots out of words.*
+*FOMC Minutes are usually a hot topic on the financial markets. There are plenty of observeres trying to break down what they said, and what they really meant.This project aims to give colour on both the actual context but also (hopefully) the underlying meaning and sentiment. With the field of text mining, this projects breaks down the Minutes into multiple areas making plots out of words.*
 
-Latest report can be found *[here](https://cnordenlow.github.io/text-mining-fomc/)*. Code available on *[github](https://github.com/cnordenlow/text-mining-fomc)*.
+Latest report can be found *[here](https://cnordenlow.github.io/text-mining-fomc/)*. 
+
+Code available on *[github](https://github.com/cnordenlow/text-mining-fomc)*.
 
 
 Below summarizes the steps taken in this project.
@@ -60,7 +64,7 @@ The approach of this project are as follows.
 
 #### Technologies
 
-For this project, both Python and R are used. Please see a short description for each script below followed by example code. At a later occassion I will walk through some of the special indexes created that needs longer description.
+For this project, both Python and R are used. Please see a short description for each script below followed by example code.
 
 
 
@@ -70,13 +74,13 @@ For this project, both Python and R are used. Please see a short description for
 
 * **r_plots.r** is a script with a couple of plots that are reused multiple times in the Markdown report.
 
-* **index.rmd** is doing some additional data wrangling and producing the report. Gglots are used.
+* **index.rmd** is doing some additional data wrangling and producing the report. 
 
 * **runAllScripts.r** can run all scripts together using Reticulate-package in R for running Python.
 
 
 
-#### Example code getFedFundsRate.py and iterateMinutes.py
+#### Example Python code for getting all Statements and Minutes
 
 Both python scripts follows the same structure with one loop getting all statements and Minutes, followed by a loop that iterates each Statement and Minutes.
 See *[github](https://github.com/cnordenlow/text-mining-fomc)* for full code.
@@ -101,9 +105,9 @@ for url in urls:
     html = urllib.request.urlopen(url).read()
     soup = BeautifulSoup(html, 'html.parser')
 
-##find all links with the word monetary (minutes for minutes)
+    ##find all links with the word monetary (minutes for minutes)
     links = soup.select("a[href*=monetary]") #find the word monetary in href
-
+    #links = soup.select("a[href*=minutes]") #find minutes in href #for Minutes
 
 #print(links)
     for link in links:
