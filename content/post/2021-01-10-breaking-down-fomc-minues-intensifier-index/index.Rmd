@@ -154,7 +154,7 @@ cat(header)
 ```
 *Sentiment has clearly picked up during the fall. One interesting point is that there is a positive net sentiment index, but still below average intensifier index which indicates that the negative words are more connected with intensifier words then what positive words are.
 Mapping Feds mind gives further juice on this as topics/words like strong, expansion are up and coming while decline, weak are well below its short and long term average. Recovery is fading which should be normal with that in mind: first we have decline -> followed by recovery -> which leads to strong/expansion. During 2020 we had it all. 
-Al together the economy did recover well during the fall but we should´t jump the bandwagon yet. The spread of Coronavirus have intensified since the meeting even though vaccination process has begun (which news of was probably driving some of the Fed-happines). Uncerntainty is real, which also shows in the plots.*
+Al together the economy did recover well during the fall but we should´t jump the bandwagon yet. The spread of Corona-virus have intensified since the meeting even though vaccination process has begun (which news of was probably driving some of the Fed-happiness). Uncertainty is real, which also shows in the plots.*
 
 
 **Short explanation of the indexes.**
@@ -164,9 +164,9 @@ Al together the economy did recover well during the fall but we should´t jump t
 **Intensifier index** shows the sum of positive minus negative words together with intensifier words like "extremely",
 "exceptionally" etc. This index shows the depth of the sentiment.
 
-**(Strong-Weak)/Moderate index** shows the net of words like "strong, stronger" minus "weak, weaker" divided by word like "moderate".
+**(Strong-Weak)/Moderate index** shows the net of words like "strong, stronger" minus "weak, weaker" divided by words like "moderate".
 
-**Mapping Feds mind** gives a feeling for which selected words/topics that are hot and not.
+**Mapping Feds mind** maps which selected words/topics that are hot and not.
 
 Latest report can be found *[here](https://cnordenlow.github.io/text-mining-fomc/)*. 
 
