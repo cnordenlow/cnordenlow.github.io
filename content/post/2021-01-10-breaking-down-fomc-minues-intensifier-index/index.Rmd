@@ -1,5 +1,5 @@
 ---
-title: 'FOMC Sentiment and Intensifier-index'
+title: 'Breaking down FOMC Minutes: Sentiment indicators'
 author: Christoffer Nordenlöw
 date: '2021-01-10'
 slug: []
@@ -143,10 +143,36 @@ df[is.na(df)] <- 0
 
 ```
 
+```{r, echo=FALSE, results='asis'}
+#https://bookdown.org/yihui/rmarkdown-cookbook/results-asis.html
+#This is for writing markdown text but grabbing the date from the dataset
+header = paste("## Text mining FOMC Minutes", max(df$date))
+cat(header)
+
+## Text Mining the Fed 
+
+```
+*Sentiment has clearly picked up during the fall. One interesting point is that there is a positive net sentiment index, but still below average intensifier index which indicates that the negative words are more connected with intensifier words then what positive words are.
+Mapping Feds mind gives further juice on this as topics/words like strong, expansion are up and coming while decline, weak are well below its short and long term average. Recovery is fading which should be normal with that in mind: first we have decline -> followed by recovery -> which leads to strong/expansion. During 2020 we had it all. 
+Al together the economy did recover well during the fall but we should´t jump the bandwagon yet. The spread of Coronavirus have intensified since the meeting even though vaccination process has begun (which news of was probably driving some of the Fed-happines). Uncerntainty is real, which also shows in the plots.*
 
 
-#### Net sentiment
-*Net sentiment is calculated by extracting all positive and negative words, and then taking the difference between these divided by the total number of words.*
+**Short explanation of the indexes.**
+
+**Net sentiment index** shows the net sum of positive words minus negative words for each Minutes.
+
+**Intensifier index** shows the sum of positive minus negative words together with intensifier words like "extremely",
+"exceptionally" etc. This index shows the depth of the sentiment.
+
+**(Strong-Weak)/Moderate index** shows the net of words like "strong, stronger" minus "weak, weaker" divided by word like "moderate".
+
+**Mapping Feds mind** gives a feeling for which selected words/topics that are hot and not.
+
+Latest report can be found *[here](https://cnordenlow.github.io/text-mining-fomc/)*. 
+
+Code available on *[github](https://github.com/cnordenlow/text-mining-fomc)*.
+
+
 ```{r, echo=FALSE, messages=FALSE, warning=FALSE}
 
 #plot spread, average sentiment trending down
@@ -190,8 +216,7 @@ p
 
 ```
 
-#### Intensifier-index
-*Intensifier-index shows the magnitude of the net sentiment by setting positive and negative words in combination with intensifier words (e.g. extremely, significant, sharply etc).*
+
 ```{r, echo=FALSE, messages=FALSE, warning=FALSE}
 
 
@@ -221,6 +246,85 @@ c_y_axis = "Index"
 
 p1 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
 p1
+
+
+```
+
+
+
+
+```{r, echo=FALSE, messages=FALSE, warning=FALSE}
+
+
+
+
+temp <- df %>%
+  filter(category == "sentiment_words")%>%
+  filter(subject %in% c("Strong", "Weak", "Moderate"))%>%
+  filter(additional =="count_words")%>%
+  # as.data.frame(temp)%>%
+  pivot_longer(-c("category", "subject", "additional", "date"), values_to = "values")%>%
+  filter(name %in% c("ma_3m_share"))%>%
+  #filter(name %in% c("frequency_share"))%>%
+  select(date,subject, values)%>%
+  pivot_wider(date, names_from = subject, values_from = values)%>%
+  mutate(diff = (Strong-Weak)/Moderate)%>%
+  mutate(average = mean(diff))%>%
+  mutate(y_axis = diff,
+         x_axis = date,
+         hline_intercept = average)
+
+
+##addera fed funds rate###
+temp2 <- df %>%
+  select(date, rate)%>%
+  distinct(date,rate)
+
+temp <- merge(temp,temp2,by.x = "date", all.x = TRUE)
+
+temp <- temp %>%
+  mutate(fed_funds_rate = rate)
+
+
+
+c_title = "SWM-Index"
+c_subtitle = "The use of words strong, weak and moderate in an index. \n Long term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations. \nIndex: (Strong - weak) / moderate."
+c_x_axis = ""
+c_y_axis = "SWM-index"
+
+
+
+p1 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p1
+```
+
+
+
+```{r, echo=FALSE, messages=FALSE, warning=FALSE}
+
+temp <- df %>%
+#  as.data.frame(temp)%>%
+  filter(category == "sentiment_words")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         bubble_size = frequency_share)
+
+
+c_title = "Mapping Feds mind: selected sentiment indicators"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p
 
 
 ```

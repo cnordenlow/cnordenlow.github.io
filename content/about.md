@@ -1,31 +1,20 @@
 ---
-date: "2014-04-09"
+date: "2020-01-06"
 description: About me and this site
 sidemenu: "true"
 title: About
 ---
 
-Hugo is a static site engine written in Go.
+Hi and welcome to my page. I´m Christoffer and living in Stockholm.
 
+During the days, I´m working as a Portfolio Manager for Fixed Income Assets in the Central bank world (which world is not central bank world right now?!).
+ 
+Maybe not surprisingly after that introduction (...and being an Economics student alumni), the fields of economy is a big interest of mine - especially with a focus on the nitty gritty parts of it. What´s driving what, and how can you plot this? Or why is ISM Manufacturing picking up faster then Markit? Can it be with how they are asking the questions?
 
-It makes use of a variety of open source projects including:
+This page will mostly circle around difference approaches to understand bigger and smaller parts of the market and economy, but it can also involve other areas like sports which is a big interest. I´m trying to explore these areas within the fields of data science, something I would really like to master. Code sharing is an important part of that - being able to share what you write will put pressure on how you do it. I have long ways to go there. 
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
+Please feel free to reach out.
 
-Learn more and contribute on [GitHub](https://github.com/spf13).
-
-## Setup
-
-Some fun facts about [Hugo](http://gohugo.io/):
-
-* Built in [Go](http://golang.org/)
-* Loosely inspired by [Jekyll](http://jekyllrb.com/)
-* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.
-* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/spf13/hugo/issues/new) or [ask me on Twitter](https://twitter.com/spf13).
+*This is a personal site. Everything written here will be my own personal thoughts, and have nothing to do with my employer.*
 
 Thanks for reading!

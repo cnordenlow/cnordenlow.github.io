@@ -15,7 +15,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$","\\.knit\\.md$", "\\.utf8\\
 [params]
   # Shown in the home page
   subtitle = "Economics. R. Python. Et al."
-  brand = "Blackburn"
+  brand = "Cnordenlow"
   googleAnalytics = "Your Google Analytics tracking ID"
   disqus = "Your Disqus shortname"
   # CSS name for highlight.js

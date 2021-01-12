@@ -45,8 +45,9 @@ output:
 </div>
 <div id="technologies" class="section level4">
 <h4>Technologies</h4>
-<p>For this project, both Python and R are used. Please see a short description for each script below followed by example code.</p>
+<p>For this project, both Python and R are used. Please see a short description for each script below followed by some example code.</p>
 <ul>
+<li><p><strong>fomcTopicDefinitions.py</strong> are definitions for different topics with bag of words. Also Loughran-McDonald dicitonary.</p></li>
 <li><p><strong>getFedFundsRate.py</strong> are parsing all chosen statements to get the Fed Funds rate for each meeting. It´s saved as an csv named fedFundsRate in subfolder Data.</p></li>
 <li><p><strong>iterateMinutes.py</strong> is the main loop for parsing and text mining all chosen Minutes. Each minutes are iterated in a for loop that extract word data. Everything is then joined in a table that is saved as a .csv saved in subfolder Data. The purpose of saving these files are to be able to put down more time on the plotting between meetings without needing to parse all Minutes each time.</p></li>
 <li><p><strong>r_plots.r</strong> is a script with a couple of plots that are reused multiple times in the Markdown report.</p></li>
@@ -62,6 +63,7 @@ See <em><a href="https://github.com/cnordenlow/text-mining-fomc">github</a></em>
 #######################################################################################
 ### Get links for statements (get links for Minutes works the same.)                ###
 #######################################################################################
+
 
 urls = [&#39;https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm&#39;,
         &#39;https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm&#39;,
@@ -99,22 +101,9 @@ for each in statements_list_url[0:number]:
     soup = BeautifulSoup(html, &#39;html.parser&#39;)
     text = soup.get_text() ##get all text
     
-    ######CLEAN DATA (differs for the used scripts)
+
+    ...Clean data...
     
-    text = text.strip()
-    text = text.replace(&#39;\r&#39;, &#39;&#39;) #replace r with minutes_list_url
-    while &#39;  &#39; in text:
-        text = text.replace(&#39;  &#39;, &#39; &#39;) #replace extra spaces
-
-        #Get minutes date as string
-    minutes_x = re.findall(&#39;[0-9]+&#39;, url2)
-    minutes_x = &#39;&#39;.join(minutes_x)
-
-    sentences = sent_tokenize(text) #get all sentences
-
-
-
-
     
     #Get Fed funds Rate
     rate_changes_temp = dict()
@@ -155,8 +144,8 @@ for each in statements_list_url[0:number]:
 rate_changes.to_csv(&quot;data/fedFundsRate.csv&quot;, encoding=&#39;utf-8&#39;, index=False)#Write to CSV
 </code></pre>
 </div>
-<div id="example-code-bag-of-words-format" class="section level4">
-<h4>Example code bag of words format</h4>
+<div id="example-code-topic-definitions-bag-of-words-fomctopicdefinitions.py" class="section level4">
+<h4>Example code topic definitions / bag of words (fomcTopicDefinitions.py)</h4>
 <p>For iterateMinutes, a bag of words format is used to being able to classify different words with the same (give or take) meaning to each topic.
 See <em><a href="https://github.com/cnordenlow/text-mining-fomc">github</a></em> for full code.</p>
 <pre class="python"><code>##########################################################################################

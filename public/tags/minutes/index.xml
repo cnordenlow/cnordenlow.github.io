@@ -9,12 +9,22 @@
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 10 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/minutes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Text Mining FOMC</title>
-      <link>/post/2021-01-10-text-mining-fomc/</link>
+      <title>Breaking down FOMC Minutes: Sentiment indicators</title>
+      <link>/post/2021-01-10-breaking-down-fomc-minues-intensifier-index/</link>
       <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
       
+      <guid>/post/2021-01-10-breaking-down-fomc-minues-intensifier-index/</guid>
+      <description>Text mining FOMC Minutes 2020-12-16Sentiment has clearly picked up during the fall. One interesting point is that there is a positive net sentiment index, but still below average intensifier index which indicates that the negative words are more connected with intensifier words then what positive words are.Mapping Feds mind gives further juice on this as topics/words like strong, expansion are up and coming while decline, weak are well below its short and long term average.</description>
+    </item>
+    
+    <item>
+      <title>Text Mining FOMC</title>
+      <link>/post/2021-01-10-text-mining-fomc/</link>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      
       <guid>/post/2021-01-10-text-mining-fomc/</guid>
-      <description>General sentimentGeneral sentimentNet sentimentNet sentiment is calculated by extracting all positive and negative words, and then taking the difference between these divided by the total number of words.</description>
+      <description>FOMC Minutes are usually a hot topic on the financial markets. There are plenty of observeres trying to break down what they said, and what they really meant.This project aims to give colour on both the actual context but also (hopefully) the underlying meaning and sentiment. With the field of text mining, this projects breaks down the Minutes into multiple areas making plots out of words.
+Latest report can be found here.</description>
     </item>
     
   </channel>

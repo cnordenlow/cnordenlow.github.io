@@ -64,9 +64,10 @@ The approach of this project are as follows.
 
 #### Technologies
 
-For this project, both Python and R are used. Please see a short description for each script below followed by example code.
+For this project, both Python and R are used. Please see a short description for each script below followed by some example code.
 
 
+* **fomcTopicDefinitions.py** are definitions for different topics with bag of words. Also Loughran-McDonald dicitonary. 
 
 * **getFedFundsRate.py** are parsing all chosen statements to get the Fed Funds rate for each meeting. It´s saved as an csv named fedFundsRate in subfolder Data.
 
@@ -90,6 +91,7 @@ See *[github](https://github.com/cnordenlow/text-mining-fomc)* for full code.
 #######################################################################################
 ### Get links for statements (get links for Minutes works the same.)                ###
 #######################################################################################
+
 
 urls = ['https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm',
         'https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm',
@@ -127,22 +129,9 @@ for each in statements_list_url[0:number]:
     soup = BeautifulSoup(html, 'html.parser')
     text = soup.get_text() ##get all text
     
-    ######CLEAN DATA (differs for the used scripts)
+
+    ...Clean data...
     
-    text = text.strip()
-    text = text.replace('\r', '') #replace r with minutes_list_url
-    while '  ' in text:
-        text = text.replace('  ', ' ') #replace extra spaces
-
-        #Get minutes date as string
-    minutes_x = re.findall('[0-9]+', url2)
-    minutes_x = ''.join(minutes_x)
-
-    sentences = sent_tokenize(text) #get all sentences
-
-
-
-
     
     #Get Fed funds Rate
     rate_changes_temp = dict()
@@ -184,7 +173,7 @@ rate_changes.to_csv("data/fedFundsRate.csv", encoding='utf-8', index=False)#Writ
 
 ```
 
-#### Example code bag of words format
+#### Example code topic definitions / bag of words (fomcTopicDefinitions.py)
 For iterateMinutes, a bag of words format is used to being able to classify different words with the same (give or take) meaning to each topic.
 See *[github](https://github.com/cnordenlow/text-mining-fomc)* for full code.
 

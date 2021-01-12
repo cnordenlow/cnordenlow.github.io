@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="What did Federal Reserve say?">
   <meta name="generator" content="Hugo 0.80.0" />
 
   <title>Text Mining FOMC &middot; Christoffer Nordenlöw</title>
@@ -69,7 +69,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="/">Blackburn</a>
+  <a class="pure-menu-heading brand" href="/">Cnordenlow</a>
 
 
   <div class="pure-menu">
@@ -147,7 +147,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://linkedin.com/in/christoffer.nordenlow" rel="me" target="_blank"><i class="fab fa-linkedin"></i></i>LinkedIn</a>
+      <a class="pure-menu-link" href="https://linkedin.com/in/christoffer-nordenlow" rel="me" target="_blank"><i class="fab fa-linkedin"></i></i>LinkedIn</a>
     </li>
     
 
@@ -213,7 +213,7 @@
 
 <div class="header">
   <h1>Text Mining FOMC</h1>
-  <h2></h2>
+  <h2>What did Federal Reserve say?</h2>
 </div>
 <div class="content">
 
@@ -221,7 +221,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>10 Jan 2021</time>
+    <time>06 Jan 2021</time>
   </div>
 
   
@@ -243,7 +243,9 @@
     
       <a class="post-taxonomy-tag" href="/tags/fomc">FOMC</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="/tags/minutes">Minutes</a>
+      <a class="post-taxonomy-tag" href="/tags/minutes">Minutes</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/federal-reserve">Federal Reserve</a>
     
   </div>
   
@@ -253,19 +255,390 @@
 
   
 
-<div id="TOC">
+
+<p><em>FOMC Minutes are usually a hot topic on the financial markets. There are plenty of observeres trying to break down what they said, and what they really meant.This project aims to give colour on both the actual context but also (hopefully) the underlying meaning and sentiment. With the field of text mining, this projects breaks down the Minutes into multiple areas making plots out of words.</em></p>
+<p>Latest report can be found <em><a href="https://cnordenlow.github.io/text-mining-fomc/">here</a></em>.</p>
+<p>Code available on <em><a href="https://github.com/cnordenlow/text-mining-fomc">github</a></em>.</p>
+<p>Below summarizes the steps taken in this project.</p>
+<div id="methodology" class="section level4">
+<h4>Methodology</h4>
+<p>The approach of this project are as follows.</p>
 <ul>
-<li><a href="#general-sentiment">General sentiment</a></li>
+<li><p>Words and topics are divided into bag of words of its meaning (e.g. the word “strong” may consists of [“strong”, “stronger”, “strongest”, “strengthen”]). All bag of words dictionaries are located in the iterateMinutes.py.</p></li>
+<li><p>All web parsing is done using BeautifulSoup package. The code first parse all .htm pages with the url of “Minutes” in it for the years of interest. Then, a second loop parse all the (chosen) Minutes for the text mining. In both parsing steps, there are a time delay of a couple of seconds.</p></li>
+<li><p>Text are divided into sentences as well as words. For some parts we use the full sentences, and for some cleaned sentences and words are used. NLTK package is used.</p></li>
+<li><p>All sentences are iterated where it checks for the different bag of words and then counted, (e.g. if the word “stronger” is found in a sentence, the count adds one regardless of how many time strong is in the sentence.) For most topics, a second loop followed which counts negative and positive words in the same sentence to get the net sentiment for each topic.</p></li>
+<li><p>R is used for some further calculations and Markdown for creating a report.</p></li>
+</ul>
+<p><em>To be able to to compare Minutes by different length with each other, everything is set in relation to total the number of words or paragraph in their respective Minutes.</em></p>
+<p><em>The purpose with the bag of words format is to being able to get part of sentences grouped for their meaning. E.g. for being able to find more colour on asset purchases (tapering amounts, reducing the program, increasing the program), it may not be sufficient to map a sentence with the word of “increase” and “asset purchase” in the same, but there a for some subjects meaningful to have longer parts of a meaning.</em></p>
+</div>
+<div id="technologies" class="section level4">
+<h4>Technologies</h4>
+<p>For this project, both Python and R are used. Please see a short description for each script below followed by some example code.</p>
+<ul>
+<li><p><strong>fomcTopicDefinitions.py</strong> are definitions for different topics with bag of words. Also Loughran-McDonald dicitonary.</p></li>
+<li><p><strong>getFedFundsRate.py</strong> are parsing all chosen statements to get the Fed Funds rate for each meeting. It´s saved as an csv named fedFundsRate in subfolder Data.</p></li>
+<li><p><strong>iterateMinutes.py</strong> is the main loop for parsing and text mining all chosen Minutes. Each minutes are iterated in a for loop that extract word data. Everything is then joined in a table that is saved as a .csv saved in subfolder Data. The purpose of saving these files are to be able to put down more time on the plotting between meetings without needing to parse all Minutes each time.</p></li>
+<li><p><strong>r_plots.r</strong> is a script with a couple of plots that are reused multiple times in the Markdown report.</p></li>
+<li><p><strong>index.rmd</strong> is doing some additional data wrangling and producing the report.</p></li>
+<li><p><strong>runAllScripts.r</strong> can run all scripts together using Reticulate-package in R for running Python.</p></li>
 </ul>
 </div>
+<div id="example-python-code-for-getting-all-statements-and-minutes" class="section level4">
+<h4>Example Python code for getting all Statements and Minutes</h4>
+<p>Both python scripts follows the same structure with one loop getting all statements and Minutes, followed by a loop that iterates each Statement and Minutes.
+See <em><a href="https://github.com/cnordenlow/text-mining-fomc">github</a></em> for full code.</p>
+<pre class="python"><code>
+#######################################################################################
+### Get links for statements (get links for Minutes works the same.)                ###
+#######################################################################################
 
-<div id="general-sentiment" class="section level3">
-<h3>General sentiment</h3>
-<div id="net-sentiment" class="section level4">
-<h4>Net sentiment</h4>
-<p><em>Net sentiment is calculated by extracting all positive and negative words, and then taking the difference between these divided by the total number of words.</em>
-<img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+
+urls = [&#39;https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm&#39;,
+        &#39;https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm&#39;,
+        &#39;https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm&#39;,
+        &#39;https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm&#39;,
+        &#39;https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm&#39;,
+        &#39;https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm&#39;
+]
+
+statements_list_url = []
+for url in urls:
+    time.sleep(random.uniform(3,7))
+    html = urllib.request.urlopen(url).read()
+    soup = BeautifulSoup(html, &#39;html.parser&#39;)
+
+    ##find all links with the word monetary (minutes for minutes)
+    links = soup.select(&quot;a[href*=monetary]&quot;) #find the word monetary in href
+    #links = soup.select(&quot;a[href*=minutes]&quot;) #find minutes in href #for Minutes
+
+#print(links)
+    for link in links:
+        if &quot;a.htm&quot; in link.get(&#39;href&#39;):
+            statements_list_url.append(link.get(&#39;href&#39;)) ##get all href that are htm page
+
+#####################################################################################################
+### Main loop that iterates all  statements. The loop for iterating Minutes works in the same way ###
+#####################################################################################################
+
+number = 100 # Number of statements to parse
+
+for each in statements_list_url[0:number]:
+    time.sleep(random.uniform(3,7))
+    url2 = &#39;https://www.federalreserve.gov&#39; + each  #get url for each side
+    html = urllib.request.urlopen(url2).read()
+    soup = BeautifulSoup(html, &#39;html.parser&#39;)
+    text = soup.get_text() ##get all text
+    
+
+    ...Clean data...
+    
+    
+    #Get Fed funds Rate
+    rate_changes_temp = dict()
+    match = 0
+    for sen in sentences: ##Iterates all sentences looking for below
+    
+        if &quot;federal funds rate&quot; in sen and &quot;target&quot; in sen and &quot;to&quot; in sen and &quot;percent&quot; in sen:
+#        if &quot;federal funds rate&quot; in sen and &quot;target&quot; in sen and &quot;to&quot; in sen and &quot;percent&quot; in sen and &quot;decided&quot; in sen or &quot;decision&quot; in sen and not &quot;voting against&quot; in sen:
+            target = &quot;percent&quot;
+            sen_words = word_tokenize(sen)
+            for i,w in enumerate(sen_words):
+                if w == target:
+                    if sen_words[i-7] != &quot;inflation&quot; or sen_words[i-6] != &quot;inflation&quot; or sen_words[i-5] != &quot;inflation&quot; or sen_words[i-4] != &quot;inflation&quot; or sen_words[i-3] != &quot;inflation&quot; or sen_words[i+3] != &quot;inflation&quot; or sen_words[i+2] != &quot;inflation&quot; or sen_words[i+1] != &quot;inflation&quot;:
+
+                        if i&gt;0:
+
+                            lower = sen_words[i-3]
+                            upper = sen_words[i-1]
+                            if &quot;0&quot; in lower or &quot;/&quot; in lower or &quot;-&quot; in lower or &quot;‑&quot; in lower or lower.isnumeric():
+                                if &quot;0&quot; in upper or &quot;/&quot; in upper or &quot;-&quot; in upper or &quot;‑&quot; in upper or upper.isnumeric():
+
+                                    if match == 0: ##only take the first correct match
+                                #print(lower)
+                                        temp = lower #return un-convertedRate if the convertRate dosen´t work
+                                        temp = convertRate(lower) ###convertRate converts the rate
+                                        rate_changes_temp[&quot;lower_bound&quot;] = temp
+                                #print(upper)
+                                        temp = upper #return un-convertedRate if the convertRate dosen´t work
+                                        temp = convertRate(upper)
+                                        rate_changes_temp[&quot;upper_bound&quot;] = temp
+                                        match = match + 1
+
+    rate_changes_temp = pd.DataFrame(rate_changes_temp.items(), columns=[&#39;bound&#39;, &quot;rate&quot;])
+    rate_changes_temp[&#39;date&#39;] = minutes_x
+
+    rate_changes = pd.concat([rate_changes, rate_changes_temp])
+
+rate_changes.to_csv(&quot;data/fedFundsRate.csv&quot;, encoding=&#39;utf-8&#39;, index=False)#Write to CSV
+</code></pre>
 </div>
+<div id="example-code-topic-definitions-bag-of-words-fomctopicdefinitions.py" class="section level4">
+<h4>Example code topic definitions / bag of words (fomcTopicDefinitions.py)</h4>
+<p>For iterateMinutes, a bag of words format is used to being able to classify different words with the same (give or take) meaning to each topic.
+See <em><a href="https://github.com/cnordenlow/text-mining-fomc">github</a></em> for full code.</p>
+<pre class="python"><code>##########################################################################################
+### Classifications of topics, negative &amp; positive words, intentifiers etc.            ###
+##########################################################################################
+
+#Topics are built as dictionaries in a bag of words/sentence format.
+
+
+topics =    {&#39;broad_topics&#39; :
+                {
+                &#39;Economy&#39; : [&quot;economy&quot;, &quot;economic&quot;, &quot;gdp&quot;],
+                &#39;Labor&#39; : [&quot;labor&quot;, &quot;employment&quot;, &quot;unemployment&quot;, &quot;payroll&quot;, &quot;participation rate&quot;],
+                &#39;Consumer&#39; : [&quot;consumer&quot;, &quot;consumption&quot;, &quot;household&quot;],
+                &#39;Inflation&#39; : [&quot;inflation&quot;, &quot;pce&quot;, &quot;cpi&quot;, &quot;core&quot;],
+                &#39;Manufacturing&#39; : [&quot;manufacturing&quot;, &quot;business&quot;, &quot;production&quot;, &quot;productivity&quot;,&quot;businesses&quot;,&quot;investment spending&quot;],
+                &#39;Housing&#39; : [&quot;housing&quot;, &quot;house&quot;, &quot;home&quot;, &quot;housing-sector&quot;, &quot;residential&quot;],
+                &#39;Commodities&#39; : [&quot;energy&quot;, &quot;commodity&quot;, &quot;commodities&quot;, &quot;oil&quot;,&quot;gas&quot;, &quot;gasoline&quot;],
+                &#39;Trade&#39; : [&quot;export&quot;, &quot;trade&quot;, &quot;import&quot;],
+                &#39;Demand&#39; : [&quot;demand&quot;],
+                &#39;Foreign&#39; : [&quot;foreign&quot;, &quot;international&quot;, &quot;china&quot;, &quot;europe&quot;, &quot;india&quot;, &quot;canada&quot;, &quot;brexit&quot;, &quot;emerging&quot;]
+                },
+
+            &#39;policy_topics&#39; :
+                {
+                &#39;Federal funds rate&#39; : [&quot;federal funds rate&quot;, &quot;target range&quot;],
+                &#39;Yield curve control&#39; : [&quot;yct&quot;, &quot;YCT&quot;, &quot;yield caps or target&quot;, &quot;capped&quot;,  &quot;yield curve control&quot;,&quot;yield caps&quot;, &quot;target interest rate&quot;, &quot;cap rate&quot;, &quot;capping longer term interest&quot;, &quot;cap shorter-term&quot;],
+                &#39;Asset purchases&#39; : [&quot;asset purchase&quot;, &quot;asset purchases&quot;, &quot;asset holding&quot;, &quot;holding of &quot;],
+                &#39;Repo operations&#39; : [&#39;repurchase agreement&#39;, &#39;reverse repurchase&#39;, &quot;rrps&quot;, &quot;repo facility&quot;, &quot;rrp&quot;,&quot;repo operation&quot;, &quot;repurchase agreement operation&quot;, &quot;overnight reverse repurchase&quot;],
+                &#39;Forward guidance&#39; : [&#39;forward guidance&#39;, &quot;expect&quot;],
+                #&#39;Excess reserves&#39; : [&quot;excess reserve&quot;, &quot;ioer&quot;],
+                &#39;Negative interest rates&#39; :  [&quot;negative interest&quot;, &quot;negative rates&quot;],
+                #&#39;Swap agreements&#39; : [&quot;swap arrangement&quot;, &quot;swap agreement&quot;],
+                &#39;Liquidity facilities&#39; : [&quot;liquidity facility&quot;, &#39;liquidity swap&#39;, &quot;liquidity and lending&quot;]
+                #&#39;ample reserve&#39; : [&quot;ample reserve&quot;]
+                }
+            }
+
+intensifiers = [&quot;very&quot;, &quot;terribly&quot;, &quot;exceptionally&quot;, &quot;extremely&quot;, &quot;significant&quot;, &quot;extreme&quot;, &quot;significantly&quot;, &quot;rapid&quot;, &quot;rapidly&quot;, &quot;sharp&quot;, &quot;severely&quot;,&quot;substantial&quot;, &quot;substantially&quot;, &quot;terribly&quot;, &quot;sharply&quot;] ###ny
+
+
+in_deep_topics = {
+            &#39;asset_program&#39; : {
+                &#39;Size&#39; : [&quot;size&quot;],
+                &#39;Composition&#39; : [&quot;composition&quot;],
+                &#39;Pace&#39; : [&quot;pace&quot;],
+                &#39;Keep same size&#39; : [&quot;rolling out at auction all principal&quot;, &quot;roll over at auction all principal payments&quot;, &quot;rolling over at auction all principal payment&quot;, &quot;continue reinvesting all principal&quot;, &quot;ending the reduction&quot;, &quot;rolling over maturing treasury securities at auction&quot;, &quot;existing policy of reinvesting principal payment&quot;],
+                &#39;Increase size&#39; : [&quot;increase its holdings&quot;,&quot;expanding&quot;, &quot;increase the system open market account holdings of treasury&quot;, &quot;increase holdings of&quot;, &quot;increasing&quot;],
+                &#39;Reduce size&#39; : [&quot;decrease&quot;, &quot;reduce&quot;, &quot;reduction&quot;, &quot;that exceed&quot;, &quot;unwind&quot;, &quot;withdrawal&quot;],
+                &#39;Taper amounts&#39; : [&quot;taper&quot;, &quot;tapering&quot;, &quot;billion per month rather than&quot;, &quot;reduce the pace of asset purchase&quot;, &quot;net purchases cease&quot;],
+                &#39;Guidance&#39; : [&quot;guidance&quot;],
+                &#39;Longer maturity&#39; : [&quot;longer maturity&quot;, &quot;lengthening the maturity&quot;]
+
+                },
+
+            &#39;inflation&#39; : {
+                &#39;Symmetric&#39; : [&quot;symmetric&quot;],
+                &#39;Compensation&#39; : [&quot;compensation&quot;],
+                &#39;Core&#39; : [&quot;core&quot;],
+                &#39;Term premium&#39; : [&quot;term premium&quot;],
+                &#39;Wages&#39; : [&quot;wages&quot;, &quot;wage&quot;],
+                &#39;Energy&#39; : [&quot;energy&quot;],
+                &#39;Long-term expectations&#39; : [&quot;long-term&quot;, &quot;longer-term&quot;],
+                &quot;Average inflation targeting&quot; : [&quot;average&quot;]
+                },
+
+            &#39;labor&#39; : {
+                &#39;Slack &#39; : [&quot;slack&quot;],
+                &#39;Job gains&#39; : [&quot;job gain&quot;],
+                &#39;Supply&#39; : [&quot;supply&quot;],
+                &#39;Participation rate&#39; : [&quot;participation rate&quot;],
+                &#39;Unemployment&#39; : [&quot;unemployment&quot;],
+                &#39;Maximum employment&#39; : [&quot;maximum employment&quot;, &quot;full employment&quot;]
+
+                }
+}
+
+
+
+###Example of how it is used.
+
+    #In deeper topic asset purchase. The purpose of this script is to get in deeper context of FOMC thoughs on their asset purchase program.
+    temp_dict = dict()
+    for sen in sentences:
+        if &quot;asset purchase&quot; in sen or &quot;asset purchases&quot; in sen or  &quot;asset program&quot; in sen or &quot;holdings of&quot; in sen or &quot;securities holdings&quot; in sen:
+            #for key, value in asset_program.items(): #for each key and value in sub dictionaries
+            for key, value in in_deep_topics[&#39;asset_program&#39;].items(): #for each key and value in sub dictionaries
+#            for key, value in asset_program.items(): #for each key and value in sub dictionaries
+                if any(item in sen for item in value):
+                    temp_dict[key] = temp_dict.get(key, 0) + 1
+                #print(sen)
+                else:
+                   temp_dict[key] = temp_dict.get(key, 0) + 0 ###To get the word in the dataframe. Its an answer that it wasent included.
+
+    temp_dict = pd.DataFrame(temp_dict.items(), columns=[&#39;subject&#39;, &quot;frequency&quot;])
+    temp_dict[&#39;date&#39;] = minutes_x
+    temp_dict[&#39;category&#39;] = &quot;in_deep_asset_program&quot;
+    temp_dict[&#39;additional&#39;] = &quot;count_words&quot;
+    temp_dict[&#39;frequency_share&#39;] = (temp_dict[&#39;frequency&#39;] / len(sentences))*100
+    minutes_all_tables = pd.concat([minutes_all_tables, temp_dict])
+
+
+</code></pre>
+</div>
+<div id="example-code-r-plots" class="section level4">
+<h4>Example code R plots</h4>
+<p>For those plots used multiple time, the script r_plots.r is created a couple of plots as functions which are sourced from RMarkdown.
+See <em><a href="https://github.com/cnordenlow/text-mining-fomc">github</a></em> for full code.</p>
+<pre class="r"><code>plot_bubble &lt;- function(temp, x_axis, y_axis,bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis){
+
+p &lt;- ggplot(data=temp, aes(x = x_axis, y = y_axis)) +
+  geom_point(aes(size=bubble_size, color=subject)) +
+  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.75)+
+
+  geom_hline(yintercept=0) + geom_vline(xintercept=0) +
+  theme_minimal() +
+  
+  theme(legend.position=&quot;bottom&quot;,
+        plot.caption=element_text(hjust=0),
+        plot.subtitle=element_text(face=&quot;italic&quot;),
+        plot.title=element_text(size=16,face=&quot;bold&quot;))+
+  
+  labs(x=c_x_axis,y=c_y_axis,
+       title=c_title,
+       subtitle=c_subtitle,
+       caption=c_caption)+
+  
+  theme(legend.position = &quot;none&quot;)+
+  
+  annotate(geom=&quot;text&quot;, x=max(abs(temp$x_axis))*1.15, y=max(abs(temp$y_axis))*1.25, label=&quot;Cooking&quot;, color=&quot;black&quot;,size=4, fontface=&quot;italic&quot;,hjust = 1)+
+  annotate(geom=&quot;text&quot;, x=max(abs(temp$x_axis))*1.15, y=-max(abs(temp$y_axis))*1.25, label=&quot;Fading&quot;, color=&quot;black&quot;,size=4, fontface=&quot;italic&quot;,hjust = 1)+
+  annotate(geom=&quot;text&quot;, x=-max(abs(temp$x_axis))*1.15, y=-max(abs(temp$y_axis))*1.25, label=&quot;In the drawer&quot;, color=&quot;black&quot;,size=4, fontface=&quot;italic&quot;,hjust = 0)+
+  annotate(geom=&quot;text&quot;, x=-max(abs(temp$x_axis))*1.15, y=max(abs(temp$y_axis))*1.25, label=&quot;Up and coming&quot;, color=&quot;black&quot;,size=4, fontface=&quot;italic&quot;,hjust = 0)
+
+}
+</code></pre>
+<p>Creating plot in RMarkdown.</p>
+<p><strong>Step 1:</strong> Import CSV-files and doing some additional calculations.</p>
+<pre class="r"><code>
+library(tidyverse)
+library(lubridate)
+library(slider)
+library(dplyr, warn.conflicts = FALSE)
+library(lubridate, warn.conflicts = FALSE)
+
+library(ggrepel)
+
+###source plots
+source(&#39;r_plots.R&#39;)
+
+
+#setting overlaps for ggrepel
+options(ggrepel.max.overlaps = Inf)
+
+df &lt;- read.table(
+&quot;data\\fomcMinutesSummary.csv&quot;,  ##på detta sätt läser den ur aktuell mapp
+  sep=&quot;,&quot;, header=TRUE)
+
+
+#Change dates
+df &lt;- df %&gt;%
+  mutate(date = as.Date(gsub(&quot;\\D&quot;, &quot;&quot;, date), format = &quot;%Y%m%d&quot;))
+
+
+#arrange
+df &lt;- arrange(df, date)
+
+
+
+#number each minutes
+temp &lt;- df%&gt;%
+  select(date) %&gt;%
+  distinct() %&gt;%
+  mutate(num = 1:n())
+
+df &lt;- merge(df, temp, by = &quot;date&quot;, all.x = TRUE)
+
+
+###sliding mean
+df &lt;- df  %&gt;%
+  group_by(subject, additional) %&gt;% 
+  mutate(avg_st = slide_index_dbl(frequency, num, mean, .before=3, .after=-1,.complete=T)) %&gt;% ##dont include the current
+  mutate(avg_lt = mean(frequency))%&gt;%
+  mutate(avg_st_share = slide_index_dbl(frequency_share, num, mean, .before=3, .after=-1,.complete=T))%&gt;%
+  mutate(avg_lt_share = mean(frequency_share))%&gt;%
+  mutate(ma_3m = slide_index_dbl(frequency, num, mean, .before=2, .after=0, .complete=T))%&gt;%
+  mutate(ma_3m_share = slide_index_dbl(frequency_share, num, mean, .before=2, .after=0, .complete=T))
+
+
+#exclude first three rows to only include when 3m_moving is on
+df &lt;-df %&gt;%
+  filter(num &gt; 3)
+
+#one minute lag
+df &lt;- df %&gt;%
+  group_by(subject, additional) %&gt;%
+  mutate(previous = lag(frequency, n = 1, default = NA)) %&gt;%
+  mutate(previous_share = lag(frequency_share, n = 1, default = NA))
+
+
+
+df &lt;- df %&gt;%
+  mutate(chg_previous = frequency - previous)%&gt;%
+  mutate(chg_avg_st = frequency - avg_st)%&gt;%
+  mutate(chg_avg_lt = frequency - avg_lt)%&gt;%
+  mutate(chg_previous_share = frequency_share - previous_share)%&gt;%
+  mutate(chg_avg_st_share = frequency_share - avg_st_share)%&gt;%
+  mutate(chg_avg_lt_share = frequency_share - avg_lt_share)
+
+  
+
+
+###Get Fed Funds Rate
+
+
+df2 &lt;- read.table(
+  &quot;data\\fedfundsRate.csv&quot;, 
+  sep=&quot;,&quot;, header=TRUE)
+
+#Change dates
+df2 &lt;- df2 %&gt;%
+  mutate(date = as.Date(gsub(&quot;\\D&quot;, &quot;&quot;, date), format = &quot;%Y%m%d&quot;))
+
+
+#arrange
+df2 &lt;- arrange(df2, date)
+
+df2 &lt;- df2%&gt;%
+  filter(bound == &quot;lower_bound&quot;)%&gt;%
+  select(-bound)
+
+
+#Merge
+df &lt;- merge(df, df2, by =&quot;date&quot;, all.x =  TRUE)
+
+df &lt;- as.data.frame(df)
+df[is.na(df)] &lt;- 0
+</code></pre>
+<p><strong>Step 2:</strong> Use the dataframe df with dplyr-conditions for filtering.</p>
+<pre class="r"><code>
+
+temp &lt;- df %&gt;%
+  filter(category == &quot;broad_topics&quot;)%&gt;%
+  filter(additional == &quot;count_words&quot;)%&gt;%
+  filter(date == max(df$date))%&gt;%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%&gt;%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         bubble_size = frequency_share)
+
+
+
+c_title = &quot;Mapping Feds mind: economic topics&quot;
+c_subtitle = &quot;Topics current share compared to short and long term average&quot;
+c_caption = &quot;Source: FOMC Minutes, own calculations.&quot;
+c_x_axis = &quot;Difference vs long term average&quot;
+c_y_axis = &quot;Difference vs short term average&quot;
+
+
+p &lt;- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p</code></pre>
+<p><img alt = '06jan_economic_topics' src='/img/06jan_economic_topics.png' /></p>
 </div>
 
   
@@ -322,8 +695,14 @@
   </div>
   <div class="pure-u-10-24">
     
+    <nav class="next">
+      <a href="/post/2021-01-10-breaking-down-fomc-minues-intensifier-index/">Breaking down FOMC Minutes: Sentiment indicators</a>
+    </nav>
+    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/2021-01-10-breaking-down-fomc-minues-intensifier-index/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
@@ -375,6 +754,9 @@
 
 
 
+<script src="/js/math-code.js"></script>
+  <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
 
 
 </body>
