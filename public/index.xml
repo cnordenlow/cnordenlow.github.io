@@ -44,9 +44,11 @@ Maybe not surprisingly after that introduction (&amp;hellip;and being an Economi
       <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/</guid>
-      <description>Selected projects Text Minining FOMC Minutes A project aimed to to explore FOMC Minutes with a Text mining approach. Latest report can be found here. Code available on github.
+      <description>Text Minining FOMC Minutes 2021-01
+A project aimed to to explore FOMC Minutes with a Text mining approach. Latest report can be found here. Code available on github.
 Project include use of R, Python, Web Scraping, Text mining.
-US Treasury Auctions This page aims to give an overview how to analyse US Treasury Auctions and to provide neccesary R-code to import, gather, breakdown and visualize the results. Code available on github.</description>
+US Treasury Auctions 2020-11
+This page aims to give an overview how to analyse US Treasury Auctions and to provide neccesary R-code to import, gather, breakdown and visualize the results. Code available on github.</description>
     </item>
     
     <item>

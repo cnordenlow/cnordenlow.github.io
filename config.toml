@@ -44,11 +44,16 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$","\\.knit\\.md$", "\\.utf8\\
     url = "/about/"
   [[menu.main]]
     name = "Projects"
-    pre = "<i class='fa fa-user fa-fw'></i>"
+    pre = "<i class='fa fa-th-list'></i>"
     weight = 4
     identifier = "projects"
     url = "/projects/"
-
+  [[menu.main]]
+    name = "CV"
+    pre = "<i class='fa fa-file-text-o'></i>"
+    weight = 5	
+    identifier = "cv"
+    url = "/resume/resume.html"
 
 [social]
   # Link your social networking accouns to the side menu
