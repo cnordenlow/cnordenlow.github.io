@@ -43,10 +43,12 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$","\\.knit\\.md$", "\\.utf8\\
     identifier = "about"
     url = "/about/"
   [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
+    name = "Projects"
+    pre = "<i class='fa fa-user fa-fw'></i>"
     weight = 4
-    url = "/contact/"
+    identifier = "projects"
+    url = "/projects/"
+
 
 [social]
   # Link your social networking accouns to the side menu
@@ -56,4 +58,5 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$","\\.knit\\.md$", "\\.utf8\\
 #  instagram = "*"
   github = "cnordenlow"
 #  stackoverflow = "*"
-  linkedin = "christoffer-nordenlow"
+  linkedin = "christoffer-nordenlöw-21186545"
+
