@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BEA on Christoffer Nordenlöw</title>
+    <link>/tags/bea/</link>
+    <description>Recent content in BEA on Christoffer Nordenlöw</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 28 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/bea/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project: Extracting FOMC Projections</title>
+      <link>/post/2021-01-21-project-extracting-fomc-projections/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-01-21-project-extracting-fomc-projections/</guid>
+      <description>Economic projections are collected from each member of the Board of Governors and each Federal Reserve Bank president four times a year. This project extracts and plots the projections in combination with the latest data.
+Latest report can be found here.
+Code available on github.
+Below summarizes the steps taken in this project.
+MethodologyThe approach of this project is pretty straight forward - at least in theory. Extract all the FOMC Projections -&amp;gt; plot it.</description>
+    </item>
+    
+  </channel>
+</rss>

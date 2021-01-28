@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.80.0" />
+
+  <title>Project: Extracting FOMC Projections &middot; Christoffer Nordenlöw</title>
+
+    
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../">Cnordenlow</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../projects/"><i class='fa fa-th-list'></i>Projects</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../resume/resume.pdf"><i class='fa fa-file-text-o'></i>CV</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/cnordenlow" rel="me" target="_blank"><i class="fab fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/christoffer-nordenl%c3%b6w-21186545" rel="me" target="_blank"><i class="fab fa-linkedin"></i></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/cnordenlow" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Project: Extracting FOMC Projections</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>28 Jan 2021</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/project">Project</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/federal-reserve">Federal Reserve</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/fomc">FOMC</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/projections">Projections</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/r">R</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p><em>Economic projections are collected from each member of the Board of Governors and each Federal Reserve Bank president four times a year. This project extracts and plots the projections in combination with the latest data.</em></p>
+<p>Latest report can be found <em><a href="https://cnordenlow.github.io/fomc-projections/">here</a></em>.</p>
+<p>Code available on <em><a href="https://github.com/cnordenlow/fomc-projections">github</a></em>.</p>
+<p><img alt = 'fomcProjections' src='../../fomc_projections/animatedFedFundsProjections.gif' /></p>
+<p>Below summarizes the steps taken in this project.</p>
+<div id="methodology" class="section level4">
+<h4>Methodology</h4>
+<p>The approach of this project is pretty straight forward - at least in theory. Extract all the FOMC Projections -&gt; plot it. However, it is as usual easier said then done, especially when formats differs over time which typically makes the case for some extra coding and the easy-to-follow structure are not so easy anymore.</p>
+<p>Side note: My approach for web scraping are to always add a delay when there are many pages that will be parsed (like it is in this case) and to save the data as .csv files. This makes it possible to reuse the data without unneccessary scraping, and also getting the data from other scripts easy.</p>
+</div>
+<div id="technologies" class="section level4">
+<h4>Technologies</h4>
+<p>For this project, R is the program used. Please see a short description for each script below followed by some example code.</p>
+<ul>
+<li><p><strong>parseProjections.r</strong> parsing all FOMC Projections from 2015-09 until present, and December projections between 2011, 2013 and 2014. Formats before 2015 is pretty messy and irregular, but after 2015 they are cleaner (kudos Fed).</p></li>
+<li><p><strong>getData</strong> sources the latest data from BEA, BLS and from extracted <a href="https://github.com/cnordenlow/text-mining-fomc">Fed Funds rate</a>. Both <a href="https://apps.bea.gov/api/signup/">BEA</a> and <a href="https://www.bls.gov/developers/">BLS</a> have excellent API:s to source data. However, at the time being, for data from BLS I´m using Rvest.
+Disclaimer: BLS and BEA cannot vouch for the data or analyses derived from these data after the data have been retrieved from BLS and BEA.</p></li>
+<li><p><strong>index.rmd</strong> runs the scripts and imports the .csv files. Also some additional data wrangling and creating a plot function. The markdown renders a report.</p></li>
+</ul>
+</div>
+<div id="libraries-used" class="section level4">
+<h4>Libraries used</h4>
+<details>
+<p><summary>Show</summary></p>
+<pre class="r"><code>
+library(tidyverse)
+library(rvest)
+library(stringr)
+library(gganimate)
+library(gifski)
+library(lubridate)
+library(httr)
+library(devtools)
+library(bea.R)
+</code></pre>
+</details>
+</div>
+<div id="parseprojections.r" class="section level4">
+<h4>parseProjections.r</h4>
+<details>
+<p><summary>Show</summary></p>
+<pre class="r"><code>
+
+#####################################################################################################
+### Libraries                                                                                     ###
+#####################################################################################################
+
+
+library(rvest)
+library(tidyverse)
+library(stringr)
+
+#####################################################################################################
+### Function for parsing                                                                          ###
+#####################################################################################################
+
+
+parse_tables &lt;- function(projections) {
+  
+  base_url = &quot;https://www.federalreserve.gov&quot;
+  url = paste(base_url, projections, sep=&quot;&quot;)
+  parse_projections &lt;- read_html(url)
+
+  df &lt;- parse_projections %&gt;%
+    html_nodes(&quot;table&quot;) %&gt;%
+    html_table(fill = TRUE)
+
+  
+  
+  #&quot;Normal&quot; tables: After sep 2015
+  
+  if (special_tables == 0) {
+  
+  
+  #Get table one
+  df &lt;- df[[1]]
+  
+  
+# due to that tables are a bit different.
+  if (df[1,1] == &quot;&quot;) {
+    colnames(df) &lt;- df[1,]
+    df &lt;- df[-1,]
+  }
+  
+  #convert first row to shared columnname
+  names(df) &lt;- paste(names(df), df[1, ], sep = &quot;_&quot;)
+  
+  #delete first row
+  df &lt;- df[-1,]
+  
+  #pivot longer
+  df &lt;- df %&gt;%
+    pivot_longer(!1, names_to = &quot;names&quot;, values_to = &quot;values&quot;)
+  
+  #divide the created column name
+  df &lt;- df %&gt;% separate(names, c(&#39;des&#39;, &#39;forecast_period&#39;), sep=&quot;_&quot;)
+  
+  #rename first column  
+  df &lt;- rename(df, variable = 1)
+  }
+  
+#Special tables: 2011-2014
+  
+  if (special_tables == 1) {
+#This depends on which minutes, year
+  date = as.numeric(gsub(&quot;\\D&quot;, &quot;&quot;, substr(projections, 1, 40))) ##hummz
+  
+  if (date == 20131218) {
+    df &lt;- df[[6]]
+  }
+  
+  if (date == 20141217) {
+    df &lt;- df[[6]]
+  }
+  
+  if (date == 20111213) {
+    df &lt;- df[[9]]
+  }
+  
+  #calculate median, needs to ungroup it
+  df &lt;- df %&gt;%
+    pivot_longer(!1, names_to = &quot;forecast_period&quot;, values_to = &quot;values&quot;)%&gt;%
+    rename(rate = 1)%&gt;%
+    na.omit(values)%&gt;%
+    uncount(values)%&gt;%
+    group_by(forecast_period)%&gt;%
+    summarize(values = median(rate))
+  
+  df$values &lt;- as.character(df$values)
+  
+  }
+  
+  
+  return(df)
+}
+
+
+#####################################################################################################
+### Parse all projection links efter 2015                                                         ###
+####################################################################################################
+
+url_links = list(
+   &quot;https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm&quot;
+  # &quot;https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm&quot;,
+
+)
+
+projection_links = character()
+
+for (each in url_links) {
+  
+  parse_links &lt;- read_html(each)
+  
+  
+  links &lt;- parse_links %&gt;% html_nodes(&quot;a&quot;) %&gt;% html_attr(&quot;href&quot;)
+  links &lt;- links[which(regexpr(&#39;.htm&#39;, links) &gt;= 1)] 
+  links &lt;- links[which(regexpr(&#39;fomcprojtabl&#39;, links) &gt;= 1)] 
+  
+  #print(each)
+  projection_links &lt;- c(projection_links, links)
+}
+
+#Add links for 2015 (not on same page as for others)
+projection_links &lt;- c(projection_links, &quot;/monetarypolicy/fomcminutes20151216ep.htm&quot;)
+projection_links &lt;- c(projection_links, &quot;/monetarypolicy/fomcminutes20150917ep.htm&quot;)
+
+##Special links
+projection_links_specials = list(
+  &quot;/monetarypolicy/fomcprojtabl20131218.htm&quot;,
+  &quot;/monetarypolicy/fomcminutes20141217epa.htm#figure2&quot;, ###special
+  &quot;/monetarypolicy/files/FOMC20111213material.htm&quot;) ###even more special
+
+#####################################################################################################
+### Create an empty data frame                                                                    ###
+#####################################################################################################
+
+proj_table &lt;- data.frame(matrix(ncol = 5, nrow = 0))
+
+#provide column names
+colnames(proj_table) &lt;- c(&#39;variable&#39;, &#39;des&#39;, &#39;forecast_period&#39;, &#39;values&#39;, &#39;date&#39;)
+
+#####################################################################################################
+### Iterates all projection links and parse the tables                                            ###
+#####################################################################################################
+
+#non specials (after 2015)
+for (projections in projection_links) {
+  special_tables = 0
+  Sys.sleep(sample(3:9, 1, replace=T))
+  df &lt;- parse_tables(projections)
+
+  df &lt;- df %&gt;%
+    mutate(date = as.numeric(gsub(&quot;\\D&quot;, &quot;&quot;, projections)))
+  
+  
+  proj_table &lt;- bind_rows(proj_table, df)
+  }
+
+
+#specials (before 2015)
+for (projections in projection_links_specials) {
+  special_tables = 1
+  
+  Sys.sleep(sample(3:9, 1, replace=T))
+  df &lt;- parse_tables(projections)
+  
+  df &lt;- df %&gt;%
+    mutate(date = as.numeric(gsub(&quot;\\D&quot;, &quot;&quot;, substr(projections, 1, 40))),
+           variable = &quot;Federal funds rate&quot;,
+           des = &quot;Median1&quot;
+    )
+  
+  proj_table &lt;- bind_rows(proj_table, df)
+}
+
+#####################################################################################################
+### Some additional cleaning and wrangling, write table                                           ###
+#####################################################################################################
+
+
+if (&quot;.copy&quot; %in% names(proj_table)){
+proj_table &lt;- proj_table %&gt;%
+  select(-.copy)
+}
+
+
+write.table(proj_table, &quot;data//projections_table.csv&quot;, sep=&quot;,&quot;)
+</code></pre>
+</details>
+</div>
+<div id="getdata.r" class="section level4">
+<h4>getData.r</h4>
+<details>
+<p><summary>Show</summary></p>
+<pre class="r"><code>#####################################################################################################
+### Get Economic Data                                                                             ###
+#####################################################################################################
+
+### Source for PCE inflation and GDP data are BEA. BEA has an excellent API that is used. https://apps.bea.gov/API/signup/index.cfm
+### Source for Unemployment data is BLS. BLS also has a great API but for the moment I´m using Rvest.
+### Source for Fed Funds rate are my github. 
+
+#BLS.gov cannot vouch for the data or analyses derived from these data after the data have been retrieved from BLS.gov.
+
+#####################################################################################################
+### Libraries                                                                                     ###
+#####################################################################################################
+
+library(httr)
+library(devtools)
+library(bea.R)
+library(tidyverse)
+library(stringr)
+library(lubridate)
+library(rvest)
+
+
+#####################################################################################################
+### Get Fed Funds rate                                                                            ###
+#####################################################################################################
+
+
+fedFunds &lt;- read.table(
+  &quot;https://raw.githubusercontent.com/cnordenlow/text-mining-fomc/main/Data/fedFundsRate.csv&quot;, 
+  sep=&quot;,&quot;, header=TRUE)
+
+
+#Change dates
+fedFunds &lt;- fedFunds %&gt;%
+  mutate(date = as.Date(gsub(&quot;\\D&quot;, &quot;&quot;, date), format = &quot;%Y%m%d&quot;))
+
+
+#Arrange
+fedFunds &lt;- arrange(fedFunds, date)
+
+fedFunds &lt;- fedFunds%&gt;%
+  filter(bound == &quot;lower_bound&quot;)%&gt;% ###Just using the lower bond in case the indata file have missing values for lower or upper bound. THe problem will be easier to handle with a fill if I only use the lower_bound and adding 0.125
+  select(-bound)%&gt;%
+  mutate(rate = round(rate + 0.125,2))%&gt;%
+  mutate(LineDescription = &quot;Federal funds rate&quot;)
+
+
+
+#####################################################################################################
+### Get Inflation and GDP data                                                                    ###
+#####################################################################################################
+
+#Individual code comes from BEA when you register.
+beaKey &lt;- &quot;xx&quot;
+#beaSearch(&#39;Personal consumption expenditures (PCE)&#39;, beaKey)
+
+
+#Inflation
+
+beaSpecs &lt;- list(
+  &#39;UserID&#39; = beaKey ,
+  &#39;Method&#39; = &#39;GetData&#39;,
+  &#39;datasetname&#39; = &#39;NIPA&#39;,
+  &#39;TableName&#39; = &#39;T20804&#39;,
+  &#39;Frequency&#39; = &#39;M&#39;,
+  &#39;Year&#39; = &#39;2011, 2012,2013,2014,2015,2016,2017,2018,2019,2020&#39;,
+  &#39;ResultFormat&#39; = &#39;json&#39;
+);
+beaPayload &lt;- beaGet(beaSpecs);
+
+
+
+
+inflation_data &lt;- beaPayload %&gt;%
+  select(-c(&quot;TableName&quot;, &quot;SeriesCode&quot;, &quot;LineNumber&quot;, &quot;METRIC_NAME&quot;, &quot;CL_UNIT&quot;, &quot;UNIT_MULT&quot;))%&gt;%
+  pivot_longer(!LineDescription,
+               names_to = &quot;des&quot;,
+               values_to = &quot;values&quot;)%&gt;%
+  #Fix dates  
+  mutate(des = str_sub(des,-7,-1))%&gt;%
+  mutate(year = sub(&quot;\\M.*&quot;, &quot;&quot;,des))%&gt;%
+  mutate(month = str_sub(des,-2,-1))%&gt;%
+  mutate(date = paste(year,month, sep=&quot;-&quot;))%&gt;%
+  mutate(date = as.Date(paste(date,&quot;-01&quot;,sep=&quot;&quot;)))%&gt;% #convert to dateformat
+  mutate(date = as.Date((date) + months(1) - days(1)))%&gt;%  #change to end of month
+  select(LineDescription, date, values) %&gt;%
+  #Calculate YoY chg
+  arrange(date)%&gt;%
+  group_by(LineDescription) %&gt;%
+  mutate(rate = round((values - lag(values, n = 12, default = NA)) / lag(values, n = 12, default = NA) * 100,2)) %&gt;% #YoY
+  #mutate(MoM = round((values - lag(values, n = 1, default = NA)) / lag(values, n = 1, default = NA) * 100,2)) %&gt;% #MoM
+  #Select PCE
+  filter(LineDescription %in% c(&quot;Personal consumption expenditures (PCE)&quot;, &quot;PCE excluding food and energy&quot;))%&gt;%
+  arrange(date)%&gt;%
+  select(-values)
+
+
+# GDP
+
+
+beaSpecs &lt;- list(
+  &#39;UserID&#39; = beaKey ,
+  &#39;Method&#39; = &#39;GetData&#39;,
+  &#39;datasetname&#39; = &#39;NIPA&#39;,
+  &#39;TableName&#39; = &#39;T10111&#39;,
+  &#39;Frequency&#39; = &#39;Q&#39;,
+  &#39;Year&#39; = &#39;2011, 2012,2013,2014,2015,2016,2017,2018,2019,2020&#39;,
+  &#39;ResultFormat&#39; = &#39;json&#39;
+);
+beaPayload &lt;- beaGet(beaSpecs);
+
+
+
+
+gdp_data &lt;- beaPayload %&gt;%
+  select(-c(&quot;TableName&quot;, &quot;SeriesCode&quot;, &quot;LineNumber&quot;, &quot;METRIC_NAME&quot;, &quot;CL_UNIT&quot;, &quot;UNIT_MULT&quot;))%&gt;%
+  pivot_longer(!LineDescription,
+               names_to = &quot;des&quot;,
+               values_to = &quot;values&quot;)%&gt;%
+  #Fix dates  
+  mutate(des = str_sub(des,-6,-1))%&gt;%
+  mutate(year =str_sub(des,1,4))%&gt;%
+  mutate(month = as.numeric(str_sub(des,-1,-1)) * 3)%&gt;%
+  mutate(date = paste(year, month, sep=&quot;-&quot;))%&gt;%
+  mutate(date = as.Date(paste(date,&quot;-01&quot;,sep=&quot;&quot;)))%&gt;% #convert to dateformat
+  mutate(date = as.Date(date) + months(1) - days(1))%&gt;%  #change to end of month
+  select(LineDescription, date, values) %&gt;%
+  rename(rate = values)%&gt;%
+  arrange(date)%&gt;% #YoY
+  filter(LineDescription %in% c(&quot;Gross domestic product (GDP)&quot;))
+
+
+
+#####################################################################################################
+### Get Unemployment Data                                                                         ###
+#####################################################################################################
+
+
+url = &quot;https://www.bls.gov/charts/employment-situation/civilian-unemployment-rate.htm&quot;
+
+
+#fomcprojections
+parse_projections &lt;- read_html(url)
+
+
+labor_data &lt;- parse_projections %&gt;%
+  html_nodes(&quot;table&quot;) %&gt;%
+  html_table(fill = TRUE)
+
+labor_data &lt;- labor_data[[1]]
+
+
+labor_data &lt;- labor_data %&gt;%
+  mutate(month = substr(Month, 1, 3))%&gt;%
+  mutate(year = str_sub(Month,-4,-1))%&gt;%
+  mutate(month = match(month,month.abb))%&gt;%
+  mutate(date = paste(year,month, sep=&quot;-&quot;))%&gt;%
+  #mutate(date = paste(year,match(df$month,month.abb),sep=&quot;-&quot;))%&gt;% #change month abr to index
+  mutate(date = as.Date(paste(date,&quot;-01&quot;,sep=&quot;&quot;)))%&gt;% #convert to dateformat
+  mutate(date = as.Date(date) + months(1) - days(1))%&gt;%  #change to end of month
+  select(date, Total)%&gt;%
+  rename(rate = Total)%&gt;%
+  mutate(LineDescription = &quot;Unemployment rate&quot;)
+
+
+#####################################################################################################
+### Merge Data tables                                                                             ###
+#####################################################################################################
+
+
+###Create dataframe  with dates from 2011
+dataTable &lt;- data.frame(
+  date = seq(as.Date(&#39;2011-12-01&#39;), Sys.Date(), by = &#39;days&#39;)
+)
+
+
+dataTable &lt;- bind_rows(dataTable, fedFunds)
+dataTable &lt;- bind_rows(dataTable, inflation_data)
+dataTable &lt;- bind_rows(dataTable, gdp_data)
+dataTable &lt;- bind_rows(dataTable, labor_data)
+
+dataTable &lt;- arrange(dataTable, date)
+
+dataTable &lt;- dataTable %&gt;%
+  pivot_wider(date, names_from = LineDescription, values_from = rate)%&gt;%
+  select(-&quot;NA&quot;)
+
+dataTable &lt;- dataTable %&gt;% fill(names(dataTable))
+
+dataTable &lt;- dataTable %&gt;%
+  pivot_longer(!date, names_to = &quot;LineDescription&quot;, values_to = &quot;rate&quot;)
+
+
+df &lt;- df %&gt;%
+  mutate(date = as.Date(as.character(date)))
+
+
+dataTable &lt;- dataTable %&gt;%
+  filter(date &gt; &quot;2011-12-01&quot;)
+
+
+write.table(dataTable, &quot;data//dataTable.csv&quot;, sep=&quot;,&quot;)</code></pre>
+</details>
+</div>
+<div id="index.rmd" class="section level4">
+<h4>index.rmd</h4>
+<details>
+<p><summary>Show</summary></p>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
+
+#####################################################################################################
+### Libraries                                                                                     ###
+#####################################################################################################
+
+
+library(tidyverse)
+library(rvest)
+library(stringr)
+library(gganimate)
+library(gifski)
+library(lubridate)
+
+#####################################################################################################
+### Sourcing parsing scripts                                                                      ###
+#####################################################################################################
+
+#source(&#39;getData.r&#39;)
+
+###source scraping
+#source(&#39;parseProjections.R&#39;)
+
+
+
+
+#####################################################################################################
+### Importing .csv files with parsed projection tables                                            ###
+#####################################################################################################
+
+
+proj_table &lt;- read.table(
+  &quot;data//projections_table.csv&quot;,  
+  sep=&quot;,&quot;, header=TRUE)
+
+dataTable &lt;- read.table(
+  &quot;data//dataTable.csv&quot;,  
+  sep=&quot;,&quot;, header=TRUE)
+
+#####################################################################################################
+### Some additional cleaning and wrangling                                                        ###
+#####################################################################################################
+
+#Remove spaces in &quot;des&quot; so all looks the same
+proj_table$des &lt;- gsub(&#39;\\s+&#39;, &#39;&#39;, proj_table$des)
+
+
+
+##Get longer run, and put as an column to link it to meetingdates
+longer_run &lt;- proj_table %&gt;%
+  filter(forecast_period %in% c(&quot;Longer run&quot;, &quot;Longer Run&quot;))%&gt;%
+  mutate(date = as.Date(gsub(&quot;\\D&quot;, &quot;&quot;, date), format = &quot;%Y%m%d&quot;))%&gt;%
+  rename(longer_run = values)#%&gt;%
+#  filter(des %in% c(&quot;Median 1&quot;, &quot;Median1&quot;))%&gt;%
+ # select(variable, longer_run, date)
+
+
+
+proj_table &lt;- proj_table %&gt;%
+  mutate(projection = date)%&gt;%
+  filter(!forecast_period %in% c(&quot;Longer run&quot;, &quot;Longer Run&quot;))%&gt;%
+    mutate(date = as.Date(gsub(&quot;\\D&quot;, &quot;&quot;, date), format = &quot;%Y%m%d&quot;))%&gt;%
+  mutate(forecast_period = as.Date(paste(forecast_period, 12, 31, sep = &quot;-&quot;)))%&gt;%
+# mutate(values = as.numeric(as.character(values)))%&gt;% ##as they are factors you need as.characters before as.numeric
+  mutate(meeting_month = months(date))%&gt;%
+  mutate(projection_year = substr(projection, 1, 4))#%&gt;%
+#  filter(des %in% c(&quot;Median 1&quot;, &quot;Median1&quot;))
+
+
+proj_table$forecast_period &lt;- as.Date(proj_table$forecast_period, format = &quot;%Y-%m-%d&quot;)
+proj_table$date &lt;- as.Date(proj_table$date, format = &quot;%Y-%m-%d&quot;)
+
+
+
+
+#####################################################################################################
+#####################################################################################################
+###
+### Data wrangling and plot function  
+###
+#####################################################################################################
+#####################################################################################################
+
+
+
+plotFunction &lt;- function(variable_name, LineDescription_name, start_date, title_text, subtitle_text, caption_text) {
+
+  
+temp &lt;- proj_table %&gt;%
+  filter(variable %in% variable_name)%&gt;%
+  filter(meeting_month %in% c(&quot;december&quot;))%&gt;%
+  filter(des %in% c(&quot;Median1&quot;))%&gt;%
+  mutate(values = as.numeric(as.character(values))) ##as they are factors you need as.characters before as.numeric
+
+
+####Always include the last if it is the current year
+last_projection &lt;- proj_table %&gt;%
+  filter(date == max(date))%&gt;%
+  filter(year(date) == year(Sys.Date()))%&gt;%
+  filter(variable %in% variable_name)
+
+#Merge
+temp &lt;- rbind(temp, last_projection) %&gt;%
+  select(-date)
+
+
+##Merge historical data
+df &lt;- dataTable %&gt;%
+  filter(LineDescription == LineDescription_name)
+
+##convert temp dates to dates:D
+df &lt;- df %&gt;%
+  mutate(date = as.Date(as.character(date)))
+
+temp &lt;- merge(df, temp, by.x = &quot;date&quot;, by.y =&quot;forecast_period&quot;, all = TRUE)
+
+#change na projections to &quot;&quot;
+temp$projection_year[is.na(temp$projection_year)] &lt;- &quot;&quot;
+
+
+#####################################################################################################
+### Merge with longer run Projection                                                              ###
+#####################################################################################################
+
+
+temp_longer_run &lt;- longer_run %&gt;%
+  filter(variable %in% variable_name)%&gt;%
+  filter(des %in% c(&quot;Median 1&quot;, &quot;Median1&quot;))%&gt;%
+  select(-c(&quot;variable&quot;, &quot;des&quot;))
+
+
+temp &lt;- merge(temp, temp_longer_run, by=c(&quot;date&quot;), all.x = TRUE)
+
+temp &lt;- arrange(temp, date)
+
+
+temp &lt;- temp %&gt;%
+  fill(longer_run, .direction = &quot;down&quot;)
+
+#temp$longer_run[is.na(temp$longer_run)] &lt;- &quot;&quot;
+temp$longer_run &lt;- as.numeric(as.character(temp$longer_run))
+
+
+####Calculate max and min for the plot
+max_y &lt;- max(
+  max(temp$rate, na.rm = TRUE),
+  max(temp$values, na.rm = TRUE),
+  max(temp$longer_run, na.rm = TRUE)
+) + 0.5
+
+min_y &lt;- min(
+  min(temp$rate, na.rm = TRUE),
+  min(temp$values, na.rm = TRUE),
+  min(temp$longer_run, na.rm = TRUE)
+) 
+
+if (min_y &lt; 0) {
+  min_y =min_y - 0.5
+}
+if (min_y &gt;= 0) {
+  min_y = 0
+}
+
+
+
+##to be able to change start date
+temp &lt;- temp %&gt;% 
+  filter(date &gt; start_date)
+
+
+#plotting
+p &lt;- ggplot(temp, aes(x = date, y = rate)) + 
+  geom_line(size = 1)+
+  geom_area(fill = &quot;lightgrey&quot;)+
+  geom_line(aes(y=longer_run), linetype=&quot;dashed&quot;, size=1)+
+  geom_line(aes(y=values, group = projection_year, color = projection_year), linetype=&quot;dashed&quot;, size=1)+
+  #  geom_line(aes(y=values, group = projection_year), linetype=&quot;dashed&quot;, size=1)+
+  theme_minimal() +
+  
+  theme(legend.position=&quot;none&quot;,
+        legend.title = element_blank(),
+        plot.caption=element_text(hjust=0),
+        plot.subtitle=element_text(face=&quot;italic&quot;),
+        plot.title=element_text(size=16,face=&quot;bold&quot;))+
+  
+  labs(x=&quot;&quot;,y=&quot;Percent&quot;,
+       title=title_text,
+       subtitle=subtitle_text,
+       caption=caption_text
+  )+
+  
+  scale_x_date(date_breaks = &quot;2 year&quot;,
+               date_labels = &quot;%Y&quot;)+
+  theme(
+    panel.grid.minor = element_blank()
+  )+ 
+  ylim(min_y, max_y)
+
+
+}
+</code></pre>
+</details>
+</div>
+
+  
+  <h4><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;Share!</h4>
+<ul class="share-buttons">
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2f2021-01-21-project-extracting-fomc-projections%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://twitter.com/intent/tweet?source=%2fpost%2f2021-01-21-project-extracting-fomc-projections%2f&via=Cnordenlow" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://plus.google.com/share?url=%2fpost%2f2021-01-21-project-extracting-fomc-projections%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.tumblr.com/share?v=3&u=%2fpost%2f2021-01-21-project-extracting-fomc-projections%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://pinterest.com/pin/create/button/?url=%2fpost%2f2021-01-21-project-extracting-fomc-projections%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.reddit.com/submit?url=%2fpost%2f2021-01-21-project-extracting-fomc-projections%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
+	</li>
+</ul>
+
+
+<style>
+	ul.share-buttons{
+	  list-style: none;
+	  padding: 0;
+	}
+
+	ul.share-buttons li{
+	  display: inline;
+	}
+
+	ul.share-buttons .sr-only{
+	  position: absolute;
+	  clip: rect(1px 1px 1px 1px);
+	  clip: rect(1px, 1px, 1px, 1px);
+	  padding: 0;
+	  border: 0;
+	  height: 1px;
+	  width: 1px;
+	  overflow: hidden;
+	}
+</style>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/2021-01-10-breaking-down-fomc-minues-intensifier-index/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/2021-01-10-breaking-down-fomc-minues-intensifier-index/">Breaking down FOMC Minutes: Sentiment indicators</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+<script src="../../js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+<script src="../../js/math-code.js"></script>
+  <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+</body>
+</html>
+
