@@ -27,7 +27,7 @@ MethodologyThe approach of this project is pretty straight forward - at least i
       <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021-01-10-breaking-down-fomc-minues-intensifier-index/</guid>
-      <description>Text mining FOMC Minutes 2020-12-16Sentiment has clearly picked up during the fall. One interesting point is that there is a positive net sentiment index, but still below average intensifier index which indicates that the negative words are more connected with intensifier words then what positive words are.Mapping Feds mind gives further juice on this as topics/words like strong, expansion are up and coming while decline, weak are well below its short and long term average.</description>
+      <description>Text mining FOMC Minutes 2021-01-27Sentiment has clearly picked up during the fall. One interesting point is that there is a positive net sentiment index, but still below average intensifier index which indicates that the negative words are more connected with intensifier words then what positive words are.Mapping Feds mind gives further juice on this as topics/words like strong, expansion are up and coming while decline, weak are well below its short and long term average.</description>
     </item>
     
     <item>
@@ -57,11 +57,13 @@ Maybe not surprisingly after that introduction (&amp;hellip;and being an Economi
       <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/</guid>
-      <description>Text Minining FOMC Minutes 2021-01
-A project aimed to to explore FOMC Minutes with a Text mining approach. Latest report can be found here. Code available on github.
-Project include use of R, Python, Web Scraping, Text mining.
-US Treasury Auctions 2020-11
-This page aims to give an overview how to analyse US Treasury Auctions and to provide neccesary R-code to import, gather, breakdown and visualize the results. Code available on github.</description>
+      <description>Extracting FOMC Projections 2021-01
+A project aimed extract FOMC Projections and current data. Latest report can be found here. Code available on github.
+Project includes use of R, Web Scraping.
+Text Mining FOMC Minutes 2021-01
+A project aimed to explore FOMC Minutes with a Text mining approach. Latest report can be found here. Code available on github.
+Project includes use of R, Python, Web Scraping, Text mining.
+US Treasury Auctions 2020-11</description>
     </item>
     
     <item>

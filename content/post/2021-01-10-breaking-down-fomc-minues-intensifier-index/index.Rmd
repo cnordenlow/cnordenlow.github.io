@@ -44,7 +44,7 @@ library(ggrepel)
 
 
 ###source plots
-source('C:\\Users\\chris\\Documents\\Python\\text-mining-fomc\\r_plots.R')
+source('C:\\Users\\chris\\Documents\\R_studio\\Projects\\Git\\text-mining-fomc\\r_plots.R')
 
 
 #setting overlaps for ggrepel
