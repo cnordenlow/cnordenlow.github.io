@@ -1,5 +1,5 @@
 ---
-title: Text Mining FOMC
+title: 'Project: Text Mining FOMC'
 subtitle: A text mining approach on FOMC Minutes
 author: Christoffer Nordenlöw
 date: '2021-01-06'

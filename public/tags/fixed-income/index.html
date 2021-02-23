@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.80.0" />
 
-  <title>Posts &middot; Christoffer Nordenlöw</title>
+  <title>Fixed Income &middot; Christoffer Nordenlöw</title>
 
     
 
@@ -23,13 +23,13 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="../css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="../css/side-menu.css">
+  <link rel="stylesheet" href="../../css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="../css/blackburn.css">
+  <link rel="stylesheet" href="../../css/blackburn.css">
 
   
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
@@ -43,7 +43,7 @@
  
   
   <link rel="alternate" type="application/rss+xml" title="Christoffer Nordenlöw"
-    href='../post/index.xml' />
+    href='../../tags/fixed-income/index.xml' />
   
 
   
@@ -53,7 +53,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
 
   
   
@@ -72,7 +72,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="../">Cnordenlow</a>
+  <a class="pure-menu-heading brand" href="../../">Cnordenlow</a>
 
 
   <div class="pure-menu">
@@ -80,31 +80,31 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="../"><i class='fa fa-home fa-fw'></i>Home</a>
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="../about/"><i class='fa fa-user fa-fw'></i>About</a>
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="../projects/"><i class='fa fa-th-list'></i>Projects</a>
+          <a class="pure-menu-link" href="../../projects/"><i class='fa fa-th-list'></i>Projects</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="../resume/resume.pdf"><i class='fa fa-file-text-o'></i>CV</a>
+          <a class="pure-menu-link" href="../../resume/resume.pdf"><i class='fa fa-file-text-o'></i>CV</a>
       
         </li>
       
@@ -116,7 +116,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href='../post/index.xml'><i
+      <a class="pure-menu-link" href='../../tags/fixed-income/index.xml'><i
           class="fas fa-rss"></i>RSS</a>
     </li>
     
@@ -222,33 +222,76 @@
 
 
 <div class="header">
-  <h1>Posts</h1>
+  <h1>Fixed Income</h1>
 </div>
+
 <div class="content">
   
-  <h2>2021</h2>
-  <ul>
-  
-    <li><time>22 Feb 2021</time> - <a href="../post/2021-02-22-project-shiny-app-for-us-rates/">Project: Shiny app for US Rates</a></li>
+    <article>
+  <header>
+    <h2><a href="../../post/2021-02-22-project-shiny-app-for-us-rates/">Project: Shiny app for US Rates</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>22 Feb 2021</time>
+  </div>
 
   
-    <li><time>28 Jan 2021</time> - <a href="../post/2021-01-21-project-extracting-fomc-projections/">Project: Extracting FOMC Projections</a></li>
 
   
-    <li><time>10 Jan 2021</time> - <a href="../post/2021-01-10-breaking-down-fomc-minues-intensifier-index/">Breaking down FOMC Minutes: Sentiment indicators</a></li>
+  
+  
+  
 
   
-    <li><time>06 Jan 2021</time> - <a href="../post/2021-01-10-project-text-mining-fomc/">Project: Text Mining FOMC</a></li>
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/r">R</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/shiny">Shiny</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/us-treasury">US Treasury</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/fixed-income">Fixed Income</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/amazon-s3">Amazon S3</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/persistent-storage">Persistent storage</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  The Shiny app created in this formula aims to be a easy to use monitor to be on top of US Bond market focusing on US Treasury Yields. The app will give a summary for some of the most important curves and indices on the US Treasury market as well as Breakeven Inflation expectations.
+Shiny app can be found here.
+Code available on github.
+MethodologyRates are parsed from US Treasury on a daily basis.
+  </p>
 
   
-  </ul>
+  <footer>
+    <a href="../../post/2021-02-22-project-shiny-app-for-us-rates/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
 </div>
 
 </div>
 </div>
-<script src="../js/ui.js"></script>
-<script src="../js/menus.js"></script>
+<script src="../../js/ui.js"></script>
+<script src="../../js/menus.js"></script>
 
 
 <script>
@@ -272,4 +315,3 @@
 
 </body>
 </html>
-

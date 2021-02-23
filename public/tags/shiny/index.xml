@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shiny on Christoffer Nordenlöw</title>
+    <link>/tags/shiny/</link>
+    <description>Recent content in Shiny on Christoffer Nordenlöw</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project: Shiny app for US Rates</title>
+      <link>/post/2021-02-22-project-shiny-app-for-us-rates/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-02-22-project-shiny-app-for-us-rates/</guid>
+      <description>The Shiny app created in this formula aims to be a easy to use monitor to be on top of US Bond market focusing on US Treasury Yields. The app will give a summary for some of the most important curves and indices on the US Treasury market as well as Breakeven Inflation expectations.
+Shiny app can be found here.
+Code available on github.
+MethodologyRates are parsed from US Treasury on a daily basis.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.80.0" />
+
+  <title>Project: Shiny app for US Rates &middot; Christoffer Nordenlöw</title>
+
+    
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="../../css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="../../css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="../../">Cnordenlow</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../projects/"><i class='fa fa-th-list'></i>Projects</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="../../resume/resume.pdf"><i class='fa fa-file-text-o'></i>CV</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/christoffer-nordenl%c3%b6w-21186545" rel="me" target="_blank"><i class="fab fa-linkedin"></i></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/cnordenlow" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Project: Shiny app for US Rates</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>22 Feb 2021</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="../../tags/r">R</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/shiny">Shiny</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/us-treasury">US Treasury</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/fixed-income">Fixed Income</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/amazon-s3">Amazon S3</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="../../tags/persistent-storage">Persistent storage</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p><em>The Shiny app created in this formula aims to be a easy to use monitor to be on top of US Bond market focusing on US Treasury Yields. The app will give a summary for some of the most important curves and indices on the US Treasury market as well as Breakeven Inflation expectations.</em></p>
+<p>Shiny app can be found <em><a href="https://cnordenlow.shinyapps.io/usRateMonitor/">here</a></em>.</p>
+<p>Code available on <em><a href="https://github.com/cnordenlow/us-rates-monitor">github</a></em>.</p>
+<p><img alt = 'usratesmonitor' src='../../us_rates_monitor/usrates.PNG' width="700" height="400"/></p>
+<div id="methodology" class="section level4">
+<h4>Methodology</h4>
+<p>Rates are parsed from US Treasury on a daily basis. However, the app will only parse the latest data once every day (of those days the app is used). The data will then be saved as an CSV-file to Amazon S3 which will work as an cashe and persistent storage for the app. Next time the app is used on the same day, it will get its data from the CSV-file. The purpose of this is to limit number of time the app is parsing data, and to keep the speed up. The app will be 7-10 seconds slower the first time it is used each day compared to the following times.</p>
+<p>Another great purpose with this approach is to be able to get cleaned data for different purposes using the CSV-file from Amazon S3.</p>
+<p>More detailed info about the rates, indices and curves can be found on the app.</p>
+</div>
+<div id="technologies" class="section level4">
+<h4>Technologies</h4>
+<p>For this project, R is the used. Please see a short description for each script below followed by some example code.</p>
+<ul>
+<li><p><strong>parseData.r</strong> parse data from US Treasury using Rvest.</p></li>
+<li><p><strong>calculations.r</strong> calculates the forward curve, breakeven rates and other indices used in the app.</p></li>
+<li><p><strong>importData.r</strong> is the main script that binds together the parts for always displaying the latest data in the app. The script imports the CSV-file from Amazon S3 and if the CSV-file is not up to date, it will run the parseData script parsing the latest data followed by calculations. It will then save as the new data table as an updated CSV-file. Besides avoiding unnecessary scraping, this approach also limits the number of calculations used in the Shiny app which makes it faster to run.</p></li>
+<li><p><strong>app.r</strong> the Shiny app that includes both the ui and the server. A bit messy but gets the job done.</p></li>
+</ul>
+<p>Parsing script is found below, rest on Github except for the Amazon Api key.:]</p>
+</div>
+<div id="libraries-used" class="section level4">
+<h4>Libraries used</h4>
+<details>
+<p><summary>Show</summary></p>
+<pre class="r"><code>
+library(shiny)
+library(shinydashboard)
+library(slider)
+library(shinyWidgets)
+library(rvest, warn.conflicts = FALSE)
+library(tidyverse, warn.conflicts = FALSE)
+library(stringr, warn.conflicts = FALSE)
+library(lubridate, warn.conflicts = FALSE)
+library(gridExtra)
+library(rstudioapi)
+library(aws.s3)
+</code></pre>
+</details>
+</div>
+<div id="parsedata.r" class="section level4">
+<h4>parseData.r</h4>
+<details>
+<p><summary>Show</summary></p>
+<pre class="r"><code>#####################################################################################################
+### Script for parsing rates
+#####################################################################################################
+
+#Libraries
+library(rvest, warn.conflicts = FALSE)
+library(tidyverse, warn.conflicts = FALSE)
+library(stringr, warn.conflicts = FALSE)
+library(lubridate, warn.conflicts = FALSE)
+
+# ------------------------------------------------------------------------------- 
+# Pages, years to parse, create empty df
+# ------------------------------------------------------------------------------- 
+
+pages = c(&quot;https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yieldYear&amp;year=&quot;,
+          &quot;https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/TextView.aspx?data=realyieldYear&amp;year=&quot;)
+
+#base_url = &quot;https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yieldYear&amp;year=&quot;
+
+years = year(Sys.Date())
+
+#years = c(&quot;2021&quot;, &quot;2020&quot;, &quot;2019&quot;, &quot;2018&quot;, &quot;2017&quot;, &quot;2016&quot;, &quot;2015&quot;, &quot;2014&quot;, &quot;2013&quot;, &quot;2012&quot;, &quot;2011&quot;, &quot;2010&quot;, &quot;2009&quot;,&quot;2008&quot;)
+
+tableUsRates &lt;- data.frame(matrix(ncol = 4, nrow = 0))
+colnames(tableUsRates) &lt;- c( &#39;date&#39;, &#39;term&#39;, &#39;rate&#39;, &#39;des&#39;)
+
+
+# ------------------------------------------------------------------------------- 
+# Parsing function
+# ------------------------------------------------------------------------------- 
+parse_us_rates &lt;- function(year) {
+  url = paste(base_url, year, sep=&quot;&quot;)
+  parse_rates &lt;- read_html(url)
+  
+  df &lt;- parse_rates %&gt;%
+    html_nodes(&quot;table&quot;) %&gt;%
+    html_table(fill = TRUE)
+  df &lt;- df[[2]]
+  return(df)
+  
+}
+
+# ------------------------------------------------------------------------------- 
+# Parse all pages and dates
+# ------------------------------------------------------------------------------- 
+for (base_url in pages) {
+
+des_name = sub(&#39;.*data=&#39;, &#39;&#39;, base_url)
+des_name = sub(&#39;&amp;year*.&#39;, &#39;&#39;, des_name)
+  
+
+  for (year in years) {
+    Sys.sleep(sample(1:3, 1, replace=T))
+    df &lt;- parse_us_rates(year)
+    
+    
+    #rename first column to date
+    df &lt;- rename(df, &quot;date&quot; = 1)
+    df$date &lt;- as.Date(df$date, format = &quot;%m/%d/%y&quot;) ##convert dates
+    
+    ###Create df with dates, from first each year to last, or to sys.date during current
+
+    first_date = paste(year,&quot;-01-01&quot;,sep=&quot;&quot;)
+    if (paste(year,&quot;-12-31&quot;,sep=&quot;&quot;) &lt; Sys.Date()) {
+      last_date = paste(year,&quot;-12-31&quot;,sep=&quot;&quot;)
+    } else {
+      last_date = Sys.Date()
+    }
+
+    dates &lt;- data.frame(
+      date = seq(as.Date(first_date), as.Date(last_date), by = &#39;days&#39;)
+    )
+    df &lt;- merge(dates, df, by =&quot;date&quot;, all.x = TRUE)
+    
+    df &lt;- df %&gt;%
+      fill(names(df), .direction = &quot;down&quot;) %&gt;%
+      fill(names(df), .direction = &quot;up&quot;)
+    
+    
+    
+    ###dplyr table
+    df &lt;- df %&gt;%
+      pivot_longer(
+        !date,
+        names_to = &quot;term&quot;,
+        values_to =&quot;rate&quot;, values_ptypes = list(rate = &#39;character&#39;)
+      ) %&gt;%
+      mutate(des = des_name) %&gt;%
+      mutate(info = &quot;&quot;) 
+  
+    tableUsRates &lt;- bind_rows(mutate_all(tableUsRates, as.character), mutate_all(df, as.character)) 
+    
+    tableUsRates$rate &lt;- as.numeric(tableUsRates$rate)
+
+  }     
+}
+
+
+
+# ------------------------------------------------------------------------------- 
+# Tidying
+# ------------------------------------------------------------------------------- 
+tableUsRates &lt;- tableUsRates %&gt;%
+  mutate(t1 = as.numeric(gsub(&quot;([0-9]+).*$&quot;, &quot;\\1&quot;, term)))%&gt;%
+  mutate(maturity = case_when(
+    grepl(&quot; yr&quot;, term, fixed = TRUE) ~ (t1 *365 / 365),
+    grepl(&quot; YR&quot;, term, fixed = TRUE) ~ (t1 *365 / 365),
+    
+    #bills
+    grepl(&quot;1 mo&quot;, term, fixed= TRUE) ~ (4 * 7 /365), ##365 days because bond equivalent
+    grepl(&quot;2 mo&quot;, term, fixed= TRUE) ~ (8 * 7 /365), ##365 days because bond equivalent
+    grepl(&quot;3 mo&quot;, term, fixed= TRUE) ~ (13 * 7 /365), ##365 days because bond equivalent
+    grepl(&quot;6 mo&quot;, term, fixed= TRUE) ~ (26 * 7 /365) ##365 days because bond equivalent
+    
+  ))%&gt;%
+
+  ##Fix term column so names are the same
+  mutate(term = case_when(
+    grepl(&quot; YR&quot;, term, fixed = TRUE) ~ paste(t1, &quot;y&quot;, sep=&quot;&quot;),
+    grepl(&quot; yr&quot;, term, fixed = TRUE) ~ paste(t1, &quot;y&quot;, sep=&quot;&quot;),
+    grepl(&quot; m&quot;, term, fixed = TRUE) ~ paste(t1, &quot;m&quot;, sep=&quot;&quot;)
+  ))%&gt;%
+  select(-t1)
+
+
+
+###Delete dates with false numbers
+tableUsRates &lt;- tableForShiny %&gt;%
+  filter(date &lt; &quot;2017-04-14&quot; | date &gt; &quot;2017-04-16&quot;) 
+</code></pre>
+</details>
+</div>
+
+  
+  <h4><i class="fas fa-share-alt" aria-hidden="true"></i>&nbsp;Share!</h4>
+<ul class="share-buttons">
+	<li><a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2f2021-02-22-project-shiny-app-for-us-rates%2f" target="_blank" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://twitter.com/intent/tweet?source=%2fpost%2f2021-02-22-project-shiny-app-for-us-rates%2f&via=Cnordenlow" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="https://plus.google.com/share?url=%2fpost%2f2021-02-22-project-shiny-app-for-us-rates%2f" target="_blank" title="Share on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.tumblr.com/share?v=3&u=%2fpost%2f2021-02-22-project-shiny-app-for-us-rates%2f" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://pinterest.com/pin/create/button/?url=%2fpost%2f2021-02-22-project-shiny-app-for-us-rates%2f" target="_blank" title="Pin it"><i class="fab fa-pinterest-p" aria-hidden="true"></i><span class="sr-only">Pin it</span></a>
+	</li>&nbsp;&nbsp;&nbsp;
+	<li><a href="http://www.reddit.com/submit?url=%2fpost%2f2021-02-22-project-shiny-app-for-us-rates%2f" target="_blank" title="Submit to Reddit"><i class="fab fa-reddit-alien" aria-hidden="true"></i><span class="sr-only">Submit to Reddit</span></a>
+	</li>
+</ul>
+
+
+<style>
+	ul.share-buttons{
+	  list-style: none;
+	  padding: 0;
+	}
+
+	ul.share-buttons li{
+	  display: inline;
+	}
+
+	ul.share-buttons .sr-only{
+	  position: absolute;
+	  clip: rect(1px 1px 1px 1px);
+	  clip: rect(1px, 1px, 1px, 1px);
+	  padding: 0;
+	  border: 0;
+	  height: 1px;
+	  width: 1px;
+	  overflow: hidden;
+	}
+</style>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="../../post/2021-01-21-project-extracting-fomc-projections/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="../../post/2021-01-21-project-extracting-fomc-projections/">Project: Extracting FOMC Projections</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="../../js/ui.js"></script>
+<script src="../../js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+<script src="../../js/math-code.js"></script>
+  <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+</body>
+</html>
+
