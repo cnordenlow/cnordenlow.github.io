@@ -1,6 +1,6 @@
 ---
 title: 'Project: Shiny app for US Rates'
-subtitle: An app for be on top of the US Fixed Income market
+subtitle: ''
 author: Christoffer Nordenlöw
 date: '2021-02-22'
 slug: []
@@ -18,7 +18,7 @@ tags:
   - Fixed Income
   - Amazon S3
   - Persistent storage
-description: ''
+description: 'An app for US Fixed Income market'
 topics: []
 ---
 
