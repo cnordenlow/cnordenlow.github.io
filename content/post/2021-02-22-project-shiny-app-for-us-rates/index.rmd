@@ -216,7 +216,7 @@ tableUsRates <- tableUsRates %>%
 
 
 ###Delete dates with false numbers
-tableUsRates <- tableForShiny %>%
+tableUsRates <- tableUsRates %>%
   filter(date < "2017-04-14" | date > "2017-04-16") 
 
 ```
