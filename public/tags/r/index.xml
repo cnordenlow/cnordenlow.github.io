@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project: US Inflation Monitor using Shiny</title>
+      <link>/post/2021-04-07-project-us-inflation-monitor-using-shiny/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021-04-07-project-us-inflation-monitor-using-shiny/</guid>
+      <description>The Shiny app created in this project monitors US Inflation. The monitor includes the latest available inflation print, Breakeven Inflation expectations, various inflation drivers and some Text Mining on FOMC Minutes.
+Shiny app can be found here.
+Code available on github.
+MethodologyTo be updated soon.
+TechnologiesTo be updated soon.
+</description>
+    </item>
+    
     <item>
       <title>Project: Shiny app for US Rates</title>
       <link>/post/2021-02-22-project-shiny-app-for-us-rates/</link>

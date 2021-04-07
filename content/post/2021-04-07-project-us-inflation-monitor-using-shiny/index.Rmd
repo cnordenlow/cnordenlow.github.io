@@ -1,0 +1,38 @@
+---
+title: 'Project: US Inflation Monitor using Shiny'
+author: Christoffer Nordenlöw
+date: '2021-04-07'
+slug: []
+categories:
+  - R
+  - Shiny
+  - Inflation
+  - Amazon S3
+tags:
+  - R
+  - Shiny
+  - Amazon S3
+  - Inflation
+description: ''
+topics: []
+---
+
+
+
+*The Shiny app created in this project monitors US Inflation. The monitor includes the latest available inflation print, Breakeven Inflation expectations, various inflation drivers and some Text Mining on FOMC Minutes.*
+
+Shiny app can be found *[here](https://cnordenlow.shinyapps.io/usInflationMonitor/)*. 
+
+Code available on *[github](https://github.com/cnordenlow/us-inflation-monitor)*.
+
+<img alt = 'usratesmonitor' src='/us_inflation_monitor/inflation_monitor.PNG' width="700" height="400"/>
+
+
+
+#### Methodology
+
+To be updated soon.
+
+#### Technologies
+
+To be updated soon.
