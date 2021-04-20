@@ -14,12 +14,10 @@
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>/post/2021-04-07-project-us-inflation-monitor-using-shiny/</guid>
-      <description>The Shiny app created in this project monitors US Inflation. The monitor includes the latest available inflation print, Breakeven Inflation expectations, various inflation drivers and some Text Mining on FOMC Minutes.
+      <description>The Shiny app created in this project monitors US Inflation. The monitor includes the latest available inflation print, Breakeven Inflation expectations, various inflation drivers and some Text Mining on FOMC Minutes.
 Shiny app can be found here.
-Code available on github.
-MethodologyTo be updated soon.
-TechnologiesTo be updated soon.
-</description>
+The code for the app is available on github.
+MethodologyThe main purpose of this app is to give a comprehensive picture of US Inflation. To be able to do this, a couple of diffrent data sources are in use.</description>
     </item>
     
   </channel>

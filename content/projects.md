@@ -5,6 +5,26 @@ sidemenu: "true"
 title: Projects
 ---
 
+### [US Inflation Monitor: A Shiny App](https://cnordenlow.com/post/2021-04-07-project-us-inflation-monitor-using-shiny/)
+2021-02
+
+*The Shiny app created in this project monitors US Inflation. The monitor includes the latest available inflation print, Breakeven Inflation expectations, various inflation drivers and some Text Mining on FOMC Minutes.*
+
+*Monitor can be found [here](https://cnordenlow.shinyapps.io/usInflationMonitor/).
+
+*Project includes use of R, Web Scraping, Shiny App.* 
+
+
+### [US Rates Monitor: A Shiny App](https://cnordenlow.com/post/2021-02-22-project-shiny-app-for-us-rates/)
+2021-02
+
+*The Shiny app created in this project monitors US Fixed Income market, focusing on Treasury Yields. The app will give a summary for some of the most important curves and indices on the US Treasury market as well as Breakeven Inflation expectations.*
+
+*Monitor can be found [here](https://cnordenlow.shinyapps.io/usRateMonitor/).
+
+*Project includes use of R, Web Scraping, Shiny App.* 
+
+
 ### [Extracting FOMC Projections](https://cnordenlow.com/post/2021-01-21-project-extracting-fomc-projections/)
 2021-01
 
