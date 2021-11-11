@@ -56,3 +56,16 @@ title: Projects
 
 *Project includes use of R, Shiny app.* 
 
+
+### Various Things
+[Shopping list](https://cnordenlow.github.io/main/shopping_list)
+
+*Shopping list used for grocery shopping. Works decent on the cell. Made in Javascript.*
+
+[Data Visualisations](https://cnordenlow.github.io/data-visualisations/index.html)
+
+*To be continued. A place where I can save plot layouts that could easily be used again.*
+
+[Tutorials](https://cnordenlow.github.io/tutorials/index.html)
+
+*Like a mindmap where I can save scripts so it will be easy to find them again. A combination of this and just stuff I have put in trying to learn the languages.*
